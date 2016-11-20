@@ -1,0 +1,13 @@
+% incorrect
+vars([turn]).
+arrays([wants_to_enter]).
+program([
+    assign(arr(wants_to_enter, pid), 1),
+    condGoto(turn = pid, 6),
+        condGoto(arr(wants_to_enter, 1-pid) = 1, 3),
+        assign(turn, pid),
+        goto(2),
+    section,
+    assign(arr(wants_to_enter, pid), 0),
+    goto(1)
+]).
